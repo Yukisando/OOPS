@@ -1,0 +1,25 @@
+package-as: OOPS
+
+# Files and directories to ignore when creating the package
+ignore:
+  - .git
+  - .github
+  - .gitignore
+  - README.md
+  - .release
+  - "*.zip"
+
+# Upload CHANGELOG.md as the CurseForge changelog (maintained automatically
+# by the release workflow from commit messages).
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown
+
+# Enable creation of multiple TOC files for different game versions
+enable-toc-creation: no
+
+# Enable creation of nolib packages (without embedded libraries)
+enable-nolib-creation: no
+
+# Set release type (alpha, beta, or release)
+package-as-release: yes

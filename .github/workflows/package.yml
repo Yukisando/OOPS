@@ -1,0 +1,53 @@
+name: Package and Upload to CurseForge
+
+# Packages the latest tag and uploads it to CurseForge. Dispatched
+# automatically by the release workflow after each new tag; can also be run
+# manually to retry a failed upload or push a beta/alpha build.
+#
+# Requirements for the CurseForge upload:
+#   - CF_API_KEY repository secret (CurseForge > Account > API Tokens)
+#   - X-Curse-Project-ID set in OOPS.toc
+# Without them the packager still attaches the zip to the GitHub release.
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: 'Release type'
+        required: true
+        default: 'release'
+        type: choice
+        options:
+          - release
+          - beta
+          - alpha
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get latest tag
+        id: latesttag
+        run: |
+          git fetch --tags
+          latest=$(git tag --list 'v[0-9]*-*' --sort=-v:refname | head -n 1)
+          if [ -z "$latest" ]; then
+            echo "No tags found!"
+            exit 1
+          fi
+          echo "Latest tag: $latest"
+          echo "tag=$latest" >> $GITHUB_OUTPUT
+          git checkout $latest
+
+      - name: Package and upload to CurseForge
+        uses: BigWigsMods/packager@v2
+        env:
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+          CF_RELEASE_TYPE: ${{ inputs.release_type }}

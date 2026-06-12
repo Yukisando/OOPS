@@ -1,0 +1,32 @@
+## Interface: 120005
+## Title: O.O.P.S
+## Notes: Obstacle-Oriented Punishment System - Consent-based hard modes for your Mythic+ group
+## Author: Yukisando
+## Version: 1.0.0
+## SavedVariables: OOPSDB
+## IconTexture: Interface\Icons\Spell_Misc_EmotionAfraid
+## Category-enUS: Gameplay
+## X-Website: https://github.com/Yukisando/OOPS
+# Set your CurseForge project ID below (then uncomment) to enable automatic
+# CurseForge uploads from the package workflow.
+# ## X-Curse-Project-ID: 0000000
+
+# Entry point (namespace + slash commands)
+OOPS.lua
+
+# Core
+Core\Database.lua
+Core\Core.lua
+Core\Comms.lua
+
+# Obstacles
+Obstacles\TunnelVision.lua
+Obstacles\Claustrophobia.lua
+Obstacles\NoCartographer.lua
+Obstacles\FlyingBlind.lua
+Obstacles\Deafened.lua
+
+# UI
+UI\ControlPanel.lua
+UI\HUD.lua
+UI\Options.lua
