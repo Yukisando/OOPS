@@ -5,6 +5,10 @@ automatically from commit messages by the release workflow.
 
 <!-- AUTO-CHANGELOG -->
 
+## v1-1 (2026-06-12)
+
+- chore: set CurseForge project ID so releases upload to CurseForge
+
 ## v1-0 (2026-06-12)
 
 - Initial release of O.O.P.S - Obstacle-Oriented Punishment System
