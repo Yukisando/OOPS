@@ -7,9 +7,7 @@
 ## IconTexture: Interface\Icons\Spell_Misc_EmotionAfraid
 ## Category-enUS: Gameplay
 ## X-Website: https://github.com/Yukisando/OOPS
-# Set your CurseForge project ID below (then uncomment) to enable automatic
-# CurseForge uploads from the package workflow.
-# ## X-Curse-Project-ID: 0000000
+## X-Curse-Project-ID: 1572897
 
 # Entry point (namespace + slash commands)
 OOPS.lua
